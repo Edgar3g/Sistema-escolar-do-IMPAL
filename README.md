@@ -31,4 +31,3 @@
 > Consulta de Notas(Sem edição)
 > Consulta de Presença/faltas(sem edição)
 > Conteúdos das Aulas(sem edição)
-

@@ -32,7 +32,15 @@
         $dados_usuario= mysqli_fetch_array($resultado_id);
 
         if($dados_usuario){
-            //Codicando...
+           
+            $nome=  $dados_usuario['nome'];
+            $painel=$dados_usuario['painel'];
+            $estado=$dados_usuario['estado']; 
+            
+            if($estado== "inactivo"){
+                header("Location: index.php?erro_004=".md5(true));
+            }
+
         }else{
             header("Location: index.php?erro_003=".md5(true));
         }
