@@ -35,20 +35,20 @@
         if($dados_usuario){
 
             $estado=$dados_usuario['estado'];
+            $nome=$dados_usuario['nome'];
+            $painel=$dados_usuario['painel'];
+
             if($estado== "inactivo"){
                 header("Location: index.php?erro_004=".md5(true));
             }
-
-            $nome=$dados_usuario['nome'];
-            $painel=$dados_usuario['painel'];
             if($painel== "admin"){
-                echo "<h1>Seje Bem-Vinda  Administrador</h1>".$nome;
+                header("Location: admin/home.php");
             }
-            if($painel== "prof"){
-                echo "<h1>Seje Bem-Vinda Professor</h1>".$nome;
+            elseif($painel== "prof"){
+                header("Location: prof/home.php");
             }
-            if($painel== "aluno"){
-                echo "<h1>Seje Bem-Vinda aluno</h1>".$nome;
+            elseif($painel== "aluno"){
+                header("Location: aluno/home.php");
             }
 
         }else{
