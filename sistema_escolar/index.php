@@ -4,7 +4,7 @@
     $erro_001=  isset( $_GET["erro_001"]) ? $_GET["erro_001"]:false;
     $erro_002=  isset( $_GET["erro_002"]) ? $_GET["erro_002"]:false;
     $erro_003=  isset( $_GET["erro_003"]) ? $_GET["erro_003"]:false;
-    $eroo_004=  isset( $_GET["eroo_004"]) ? $_GET["erro_004"]:false;
+    $erro_004=  isset( $_GET["erro_004"]) ? $_GET["erro_004"]:false;
 
     //Menssagens para exibição de erro
     $msg_001= "<font color='red'><br><br>Número do cartão ou ID não foi digitado!<br></font>";
@@ -80,7 +80,7 @@
                                 echo $msg_002;
                             }if($erro_003){
                                 echo $msg_003;
-                            }if($msg_004){
+                            }if($erro_004){
                                 echo $msg_004;
                             }
 

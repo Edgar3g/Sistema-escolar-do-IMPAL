@@ -1,5 +1,6 @@
 
 <?php
+
    $numero_cartao= $_POST["numero_cartao"];
    $senha= $_POST["senha"];
    
@@ -32,13 +33,22 @@
         $dados_usuario= mysqli_fetch_array($resultado_id);
 
         if($dados_usuario){
-           
-            $nome=  $dados_usuario['nome'];
-            $painel=$dados_usuario['painel'];
-            $estado=$dados_usuario['estado']; 
-            
+
+            $estado=$dados_usuario['estado'];
             if($estado== "inactivo"){
                 header("Location: index.php?erro_004=".md5(true));
+            }
+
+            $nome=$dados_usuario['nome'];
+            $painel=$dados_usuario['painel'];
+            if($painel== "admin"){
+                echo "<h1>Seje Bem-Vinda  Administrador</h1>".$nome;
+            }
+            if($painel== "prof"){
+                echo "<h1>Seje Bem-Vinda Professor</h1>".$nome;
+            }
+            if($painel== "aluno"){
+                echo "<h1>Seje Bem-Vinda aluno</h1>".$nome;
             }
 
         }else{
