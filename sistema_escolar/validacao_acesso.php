@@ -8,10 +8,10 @@
         if( empty( $_POST["numero_cartao"]) || empty($_POST["senha"]) ){
 
             if( empty( $_POST["numero_cartao"]) ){
-               $erro.="erro_001=true&";
+               $erro.="erro_001=".md5(true).'&';
             }
             if( empty($_POST["senha"]) ) {
-                $erro.="erro_002=true";
+                $erro.="erro_002=".md5(true);
             }
             header("Location: index.php?".$erro);
             die();
@@ -32,7 +32,7 @@
         $dados_usuario= mysqli_fetch_array($resultado_id);
 
         if($dados_usuario){
-            header("Location: index.php");
+            //Codicando...
         }else{
             header("Location: index.php?erro_003=".md5(true));
         }
