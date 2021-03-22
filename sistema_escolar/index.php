@@ -1,13 +1,16 @@
 <?php
 
+    //Tratamento de erro via GET
     $erro_001=  isset( $_GET["erro_001"]) ? $_GET["erro_001"]:false;
     $erro_002=  isset( $_GET["erro_002"]) ? $_GET["erro_002"]:false;
     $erro_003=  isset( $_GET["erro_003"]) ? $_GET["erro_003"]:false;
+    $eroo_004=  isset( $_GET["eroo_004"]) ? $_GET["erro_004"]:false;
 
+    //Menssagens para exibição de erro
     $msg_001= "<font color='red'><br><br>Número do cartão ou ID não foi digitado!<br></font>";
     $msg_002= "<font color='red'><br><br>Senha Não foi digitada!<br></font>";
-    $msg_003= "<font color='red'><br><br>ID ou Senha incorrecta!  Por favor entre em contacto com a Secretaria do Alda Lara<br></font>";
-
+    $msg_003= "<font color='red'><br><br>ID ou Senha incorrecta!  Por favor entre em contacto com a direcção do Alda Lara<br></font>";
+    $msg_004= "<font color='red'><br><br>Infelizmente a sua Conta Encontra-se Inactiva! Entre em contacto com a direcção do Alda Lara<br></font>";
 ?>
 
 <!DOCTYPE html>
@@ -69,13 +72,18 @@
 
                     <div>
                         <?php
+
+                            //disparo de mensagem consernente aos erros
                             if($erro_001){
                                 echo $msg_001;
                             }if($erro_002){
                                 echo $msg_002;
                             }if($erro_003){
                                 echo $msg_003;
+                            }if($msg_004){
+                                echo $msg_004;
                             }
+
                         ?>
                     </div>
 
