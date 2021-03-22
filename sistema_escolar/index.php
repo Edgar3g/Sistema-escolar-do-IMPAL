@@ -9,7 +9,7 @@
     //Menssagens para exibição de erro
     $msg_001= "<font color='red'><br><br>Número do cartão ou ID não foi digitado!<br></font>";
     $msg_002= "<font color='red'><br><br>Senha Não foi digitada!<br></font>";
-    $msg_003= "<font color='red'><br><br>ID ou Senha incorrecta!  Por favor entre em contacto com a direcção do Alda Lara<br></font>";
+    $msg_003= "<font color='red'><br><br>ID ou Senha incorrecta!<br></font>";
     $msg_004= "<font color='red'><br><br>Infelizmente a sua Conta Encontra-se Inactiva! Entre em contacto com a direcção do Alda Lara<br></font>";
 ?>
 

@@ -40,23 +40,35 @@
 
             if($estado== "inactivo"){
                 header("Location: index.php?erro_004=".md5(true));
-            }
-            if($painel== "admin"){
-                header("Location: admin/home.php");
-            }
-            elseif($painel== "prof"){
-                header("Location: prof/home.php");
-            }
-            elseif($painel== "aluno"){
-                header("Location: aluno/home.php");
+                die();
             }
 
+            if($painel== "aluno"){
+                header("Location: aluno/home.php");
+                die();
+            }
+            
+            else if($painel== "admin"){
+                header("Location: admin/home.php");
+                die();
+            }
+            else if($painel== "prof"){
+                header("Location: prof/home.php");
+                die();
+            }
+            else if($painel== "aluno"){
+                header("Location: aluno/home.php");
+                die();
+            }
+            
         }else{
             header("Location: index.php?erro_003=".md5(true));
+            die();
         }
        
     }else{
         echo "Consulta No Banco de Dados não consedida";
+        die();
     } 
 
 ?>
