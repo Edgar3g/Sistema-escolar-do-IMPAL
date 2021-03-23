@@ -1,5 +1,6 @@
 <?php
-    session_start();
+
+    @session_start();
     $numero_cartao= $_POST["numero_cartao"];
     $senha= $_POST["senha"];
 
@@ -66,9 +67,9 @@
                 header("Location: aluno/home.php");
                 die();
 
-            }/*else{
+            }else{
                 echo "<font color='red'><br><br>Seu Perfil não foi encrontrado! Por favor entre em contacto com a Direcção do Alda Lara<br></font>"; 
-            }*/
+            }s
               
         }else{
             header("Location: index.php?erro_003=".md5(true));
