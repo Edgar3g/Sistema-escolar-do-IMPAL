@@ -1,9 +1,9 @@
 <?php
 
-    @session_start();
+    session_start();
     $numero_cartao= $_POST["numero_cartao"];
     $senha= $_POST["senha"];
-
+   
     if( isset($_POST["entrar"]) ){ 
 
         if( empty( $_POST["numero_cartao"]) || empty($_POST["senha"]) ){
@@ -28,14 +28,13 @@
     
     $resultado_id= mysqli_query($conn,$sql);
     
+
     if($resultado_id){
         
         $dados_usuario= mysqli_fetch_array($resultado_id);
 
         if( isset($dados_usuario) ){
             
-            
-        
             $_SESSION['estado']=        $dados_usuario['estado'];
             $_SESSION['painel']=        $dados_usuario['painel'];
 
@@ -49,7 +48,7 @@
                 $_SESSION['numero_cartao']= $dados_usuario['numero_cartão'];
                 $_SESSION['senha']=         $dados_usuario['senha'];
                 header("Location: admin/home.php");
-                
+                die();
             }
             if($_SESSION['painel']== "prof"){
 
@@ -69,7 +68,7 @@
 
             }else{
                 echo "<font color='red'><br><br>Seu Perfil não foi encrontrado! Por favor entre em contacto com a Direcção do Alda Lara<br></font>"; 
-            }s
+            }
               
         }else{
             header("Location: index.php?erro_003=".md5(true));

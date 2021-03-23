@@ -1,10 +1,11 @@
 <?php
     // Painel do administrador
-    
-    @session_start();
 
+    
     //Avaição de Segurança
-    if( empty($_SESSION['numero_cartao']) || empty($_SESSION['senha']) ){
+    session_start();
+    $_SESSION['painel']== 'admin';
+    if( (empty($_SESSION['numero_cartao']) && empty($_SESSION['senha']) ) || $_SESSION['painel'] != 'admin' ){
         header("Location: ../index.php");
         die();
     }
