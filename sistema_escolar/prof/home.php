@@ -1,5 +1,6 @@
 <?php
+    //Painel do Professor
 
-echo "ARE DO PROFESSOR EM EDIÇÃO";
+    echo "AREA DO PROFESSOR EM EDIÇÃO";
 
 ?>

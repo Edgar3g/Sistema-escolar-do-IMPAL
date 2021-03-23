@@ -1,5 +1,6 @@
 <?php
-
-echo "ARE DO ALUNO EM EDIÇÃO";
+    //Painel do Aluno
+    
+    echo "AREA DO ALUNO EM EDIÇÃO";
 
 ?>
