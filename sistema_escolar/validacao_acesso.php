@@ -1,6 +1,7 @@
-
 <?php
-
+    
+    session_start(); 
+    
    $numero_cartao= $_POST["numero_cartao"];
    $senha= $_POST["senha"];
    
@@ -19,12 +20,13 @@
         } 
     }       
 
+    
     include_once "conecao.php";
 
     $banco_dados= new Banco_dados();
     $conn=$banco_dados->conecao_bd();
 
-    $sql= "SELECT * FROM usuarios WHERE numero_cartão= '$numero_cartao'  And senha= '$senha' ";
+    $sql= "SELECT * FROM usuarios WHERE numero_cartão= '$numero_cartao' and senha= '$senha' ";
     
     $resultado_id= mysqli_query($conn,$sql);
     
@@ -32,31 +34,27 @@
         
         $dados_usuario= mysqli_fetch_array($resultado_id);
 
-        if($dados_usuario){
+        if( isset($dados_usuario) ){
 
-            $estado=$dados_usuario['estado'];
-            $nome=$dados_usuario['nome'];
-            $painel=$dados_usuario['painel'];
+            
+            $_SESSION['estado']=$dados_usuario['estado'];
+            $_SESSION['nome']=  $dados_usuario['nome'];
+            $_SESSION['painel']=$dados_usuario['painel'];
 
-            if($estado== "inactivo"){
+            if($_SESSION['estado']== "inactivo"){
                 header("Location: index.php?erro_004=".md5(true));
                 die();
             }
 
-            if($painel== "aluno"){
-                header("Location: aluno/home.php");
-                die();
-            }
-            
-            else if($painel== "admin"){
+           if($_SESSION['painel']== "admin"){
                 header("Location: admin/home.php");
                 die();
             }
-            else if($painel== "prof"){
+            else if($_SESSION['painel']== "prof"){
                 header("Location: prof/home.php");
                 die();
             }
-            else if($painel== "aluno"){
+            else if($_SESSION['painel']== "aluno"){
                 header("Location: aluno/home.php");
                 die();
             }
